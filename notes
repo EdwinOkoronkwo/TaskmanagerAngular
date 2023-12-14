@@ -1,0 +1,41 @@
+1. Create/Update interface
+2. Ensure priority level is created as ENUM (No need for this.)
+3. Create TaskForm
+4. Create Nav bar on home page
+4. Create Create HTML for TaskForm
+5. Use Bootstrap for form
+5. Create Task Component (Available)
+6. Create/Update Tasks Component
+6. Create Routes for Task and Tasks
+7. Create Custom Validator
+8. Create/Update TasksServices to getTasks, getTask, updateTask
+  and deleteTask
+10. Update put to path.
+
+
+
+    // {
+    //   title: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    //   },
+    //   description: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    //   },
+    //   category: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    //   },
+    //   task_date: {
+    //     type: DataTypes.DATE,
+    //     allowNull: false,
+    //   },
+    //   priority_level: {
+    //     type: DataTypes.ENUM("High", "Low", "Medium"),
+    //     allowNull: false,
+    //   },
+    //   progress_level: {
+    //     type: DataTypes.ENUM("Pending", "Started", "Completed"),
+    //   },
+    // },

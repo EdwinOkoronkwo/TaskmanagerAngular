@@ -1,0 +1,129 @@
+<fieldset class="container">
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <fieldset class="title">
+        <div class="mb-3">
+          <label class="form-label"><strong>Title</strong></label>
+          <input type="text" class="form-control" formControlName="title" />
+          <span
+            *ngIf="titleFormControl?.touched && titleFormControl?.errors?.['required']"
+          >
+            Title is required
+          </span>
+          <span
+            *ngIf="titleFormControl?.dirty && titleFormControl?.errors?.['minlength']"
+          >
+            The title field must be at least 3 characters
+          </span>
+          <span
+            *ngIf="titleFormControl?.dirty && titleFormControl?.errors?.['prohibited']"
+          >
+            The title field contains a prohibited word.
+          </span>
+        </div>
+      </fieldset>
+      <fieldset class="description">
+        <div class="mb-3">
+          <label class="form-label"><strong>Description</strong></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="description"
+          />
+          <span
+            *ngIf="descriptionFormControl?.touched && descriptionFormControl?.errors?.['required']"
+          >
+            Description is required
+          </span>
+        </div>
+      </fieldset>
+      <fieldset class="category">
+        <div class="mb-3">
+          <label class="form-label"><strong>Category</strong></label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            class="form-control"
+            formControlName="category"
+          >
+            <option selected value="">Select Category</option>
+            <option *ngFor="let task of tasks">
+              {{ task.category }}
+            </option>
+          </select>
+          <!-- <input type="text" class="form-control" formControlName="category" /> -->
+        </div>
+        <span
+          *ngIf="categoryFormControl?.touched && categoryFormControl?.errors?.['required']"
+        >
+          Category is required
+        </span>
+      </fieldset>
+      <fieldset class="task_date">
+        <div class="mb-3">
+          <label class="form-label"><strong>Task Date</strong></label>
+          <input type="date" class="form-control" formControlName="task_date" />
+          <span
+            *ngIf="taskDateFormControl?.touched && taskDateFormControl?.errors?.['required']"
+          >
+            Task Date is required
+          </span>
+        </div>
+      </fieldset>
+      <fieldset class="priority_level">
+        <div class="mb-3">
+          <label class="form-label"><strong>Priority Level</strong></label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            class="form-control"
+            formControlName="priority_level"
+          >
+            <option selected value="">Select Priority Level</option>
+            <option *ngFor="let prio of priority_level">
+              {{ prio }}
+            </option>
+          </select>
+          <span
+            *ngIf="priorityLevelFormControl?.touched && priorityLevelFormControl?.errors?.['required']"
+          >
+            Priority Level is required
+          </span>
+        </div>
+      </fieldset>
+      <fieldset class="progress_level">
+        <div class="mb-3">
+          <label class="form-label"><strong>Progress Level</strong></label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            class="form-control"
+            formControlName="progress_level"
+          >
+            <option selected value="">Select Progress Level</option>
+            <option *ngFor="let prog of progress_level">
+              {{ prog }}
+            </option>
+          </select>
+          <span
+            *ngIf="progressLevelFormControl?.touched && progressLevelFormControl?.errors?.['required']"
+          >
+            Progress Level is required
+          </span>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="mb-3">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="taskForm.invalid"
+          >
+            Submit
+          </button>
+        </div>
+      </fieldset>
+    </fieldset>
+  </form>
+</fieldset>
